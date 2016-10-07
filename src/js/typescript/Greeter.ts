@@ -1,5 +1,5 @@
 /**
- * Created by petr on 07.10.16.
+ * @author Vehsamrak
  */
 
 export class Greeter {
