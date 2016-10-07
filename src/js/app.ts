@@ -1,7 +1,5 @@
-/**
- * Created by petr on 07.10.16.
- */
+import {Greeter} from "./typescript/Greeter";
 
-import greeter = require('./typescript/typescript');
+var greeter = new Greeter('World');
 
-console.log(greeter("World"));
+console.log(greeter.greet());
