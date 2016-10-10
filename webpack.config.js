@@ -22,10 +22,13 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        extensions: ['', '.webpack.js', '.css', '.less', '.web.js', '.ts', '.tsx', '.js']
-    },
     plugins: [
         new ExtractTextPlugin("./web/css/styles.css")
-    ]
+    ],
+    node: {
+        fs: "empty"
+    },
+    externals: {
+        'phaser': 'Phaser'
+    }
 };

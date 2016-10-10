@@ -3,9 +3,13 @@
         "module": "commonjs",
         "target": "es5",
         "sourceMap": true,
-        "removeComments": true
+        "removeComments": false
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "dist",
+        "build",
+        "lib",
+        "typings"
     ]
 }
