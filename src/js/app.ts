@@ -37,6 +37,7 @@ class Game {
 
         if (this.game.input.mousePointer.isDown) {
             this.ship.rotation = this.game.physics.arcade.angleToPointer(this.ship) + 1.6;
+            this.game.physics.arcade.moveToPointer(this.ship, 100);
         }
     }
 
