@@ -1,4 +1,4 @@
-/// <reference path="../../lib/phaser.d.ts"/>
+/// <reference path="../lib/phaser.d.ts"/>
 
 class Game {
     game: Phaser.Game;
@@ -17,12 +17,12 @@ class Game {
     preload() {
         this.game.load.image('ship1', 'img/ship1.png');
     }
+
     create() {
         this.game.stage.backgroundColor = '#020F14';
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         this.ship = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship1');
-        this.ship.anchor.setTo(0.5, 0.5);
 
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.physics.p2.enable(this.ship);
@@ -34,10 +34,11 @@ class Game {
 
     update() {
         this.ship.body.setZeroVelocity();
+        let shipDistanceFromPointer = this.game.physics.arcade.distanceToPointer(this.ship);
 
-        if (this.game.input.mousePointer.isDown) {
-            this.ship.rotation = this.game.physics.arcade.angleToPointer(this.ship) + 1.6;
+        if (this.game.input.mousePointer.isDown && shipDistanceFromPointer > 50) {
             this.game.physics.arcade.moveToPointer(this.ship, 100);
+            this.ship.rotation = this.game.physics.arcade.angleToPointer(this.ship) + 1.6;
         }
     }
 
