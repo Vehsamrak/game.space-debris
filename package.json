@@ -10,7 +10,10 @@
     "test": "tests"
   },
   "dependencies": {
+    "event-stream": "^3.3.4",
+    "gulp-concat": "^2.6.0",
     "gulp-typescript": "^3.0.2",
+    "merge-stream": "^1.0.0",
     "typescript": "^2.0.3"
   },
   "author": "Vehsamrak",

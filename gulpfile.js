@@ -1,11 +1,18 @@
 var gulp = require('gulp');
-var ts = require('gulp-typescript');
+var typescript = require('gulp-typescript');
+var concat = require('gulp-concat');
+var merge = require('merge-stream');
 
 gulp.task('default', function () {
-    return gulp.src('src/**/*.ts')
-        .pipe(ts({
-            noImplicitAny: true,
-            out: 'scripts.js'
-        }))
-        .pipe(gulp.dest('web/js'));
+    var phaser = gulp.src('./lib/phaser.min.js');
+
+    var ts = gulp.src('src/**/*.ts')
+        .pipe(typescript({
+            noImplicitAny: true
+        }));
+
+    return merge(phaser, ts)
+        .pipe(concat('scripts.js'))
+        // .pipe(uglify())
+        .pipe(gulp.dest('./web/js'));
 });
