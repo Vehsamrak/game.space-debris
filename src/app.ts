@@ -36,7 +36,7 @@ class Game {
         this.ship.body.setZeroVelocity();
         let shipDistanceFromPointer = this.game.physics.arcade.distanceToPointer(this.ship);
 
-        if (this.game.input.mousePointer.isDown && shipDistanceFromPointer > 50) {
+        if (this.game.input.activePointer.isDown && shipDistanceFromPointer > 50) {
             this.game.physics.arcade.moveToPointer(this.ship, 100);
             this.ship.rotation = this.game.physics.arcade.angleToPointer(this.ship) + 1.6;
         }
