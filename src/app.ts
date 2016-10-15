@@ -20,6 +20,8 @@ class Game {
 
     create() {
         this.game.stage.backgroundColor = '#020F14';
+        this.game.world.setBounds(0, 0, 1000, 1000);
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         this.ship = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship1');
@@ -30,6 +32,10 @@ class Game {
         this.ship.body.fixedRotation = true;
 
         this.game.camera.follow(this.ship, Phaser.Camera.FOLLOW_LOCKON);
+
+        this.game.input.onDown.add(function () {
+            this.game.scale.startFullScreen(false);
+        }, this);
     }
 
     update() {
