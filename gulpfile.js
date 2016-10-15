@@ -6,9 +6,11 @@ var merge = require('merge-stream');
 gulp.task('default', function () {
     var phaser = gulp.src('./lib/phaser.min.js');
 
-    var ts = gulp.src('src/**/*.ts')
+    var ts = typescript.createProject('tsconfig.json').src()
         .pipe(typescript({
-            noImplicitAny: true
+            target: "es5",
+            noImplicitAny: true,
+            out: 'scripts.js'
         }));
 
     return merge(phaser, ts)
