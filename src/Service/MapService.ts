@@ -18,8 +18,9 @@ class MapService {
 
             let star = this.game.add.sprite(x, y, 'star');
 
-            var starSize = this.game.rnd.realInRange(0.1, 0.5);
+            let starSize = this.game.rnd.realInRange(0.1, 0.5);
             star.scale.setTo(starSize, starSize);
+            star.moveDown();
         }
     }
 }
