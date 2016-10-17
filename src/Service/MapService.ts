@@ -11,10 +11,15 @@ class MapService {
 
     createStar(): void {
         this.game.rnd.sow(['space']);
+
         for (let i = 0; i < this.starsNumber; i++) {
             let x = this.game.rnd.integerInRange(- this.brimBounds, this.game.world.width + this.brimBounds);
             let y = this.game.rnd.integerInRange(- this.brimBounds, this.game.world.height + this.brimBounds);
-            this.game.add.sprite(x, y, 'star');
+
+            let star = this.game.add.sprite(x, y, 'star');
+
+            var starSize = this.game.rnd.realInRange(0.1, 0.5);
+            star.scale.setTo(starSize, starSize);
         }
     }
 }
