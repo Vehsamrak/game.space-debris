@@ -3,8 +3,6 @@
 class Application {
     game: Phaser.Game;
     private ship: Phaser.Sprite;
-    private cursors: Phaser.CursorKeys;
-    private service: ServiceLocator;
 
     update() {
         this.ship.body.setZeroVelocity();

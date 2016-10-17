@@ -1,7 +1,3 @@
-/**
- * @author Vehsamrak
- */
-
 class AbstractSpaceShip implements SpaceShip {
     private sprite: Phaser.Sprite;
 

@@ -1,7 +1,3 @@
-/**
- * @author Vehsamrak
- */
-
 class Carrier extends AbstractSpaceShip {
 
     getShipLength(): number {
