@@ -10,6 +10,7 @@ class MapService {
     }
 
     createStar(): void {
+        this.game.rnd.sow(['space']);
         for (let i = 0; i < this.starsNumber; i++) {
             let x = this.game.rnd.integerInRange(- this.brimBounds, this.game.world.width + this.brimBounds);
             let y = this.game.rnd.integerInRange(- this.brimBounds, this.game.world.height + this.brimBounds);
