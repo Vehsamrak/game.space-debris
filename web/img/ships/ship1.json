@@ -1,6 +1,6 @@
 {
     "frames": {
-        "move": {
+        "move1": {
             "frame": {
                 "x": 0,
                 "y": 0,
@@ -20,10 +20,90 @@
                 "h": 130
             }
         },
-        "stand": {
+        "move2": {
             "frame": {
                 "x": 0,
                 "y": 130,
+                "w": 120,
+                "h": 130
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 120,
+                "h": 130
+            },
+            "sourceSize": {
+                "w": 120,
+                "h": 130
+            }
+        },
+        "move3": {
+            "frame": {
+                "x": 0,
+                "y": 260,
+                "w": 120,
+                "h": 130
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 120,
+                "h": 130
+            },
+            "sourceSize": {
+                "w": 120,
+                "h": 130
+            }
+        },
+        "move4": {
+            "frame": {
+                "x": 0,
+                "y": 390,
+                "w": 120,
+                "h": 130
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 120,
+                "h": 130
+            },
+            "sourceSize": {
+                "w": 120,
+                "h": 130
+            }
+        },
+        "move5": {
+            "frame": {
+                "x": 0,
+                "y": 520,
+                "w": 120,
+                "h": 130
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 120,
+                "h": 130
+            },
+            "sourceSize": {
+                "w": 120,
+                "h": 130
+            }
+        },
+        "stand": {
+            "frame": {
+                "x": 0,
+                "y": 650,
                 "w": 120,
                 "h": 130
             },
@@ -48,9 +128,9 @@
         "format": "RGBA8888",
         "size": {
             "w": 120,
-            "h": 260
+            "h": 780
         },
         "scale": "1",
-        "smartupdate": "$TexturePacker:SmartUpdate:2fd09f7ef9f77d8321d479ff84db2e6e:8d5db104eab4db8abbfe99ce74ccae2c:734927be80cfdd2a94ff117121213728$"
+        "smartupdate": "$TexturePacker:SmartUpdate:27d011e8415528a06b35f441a702097a:b772a8ea8d6c9dfbf587b3b128985741:734927be80cfdd2a94ff117121213728$"
     }
 }

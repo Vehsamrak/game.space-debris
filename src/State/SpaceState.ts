@@ -1,6 +1,7 @@
 class SpaceState {
     private game: Phaser.Game;
     private ship: Phaser.Sprite;
+    private shipState: ShipState;
     private cursors: Phaser.CursorKeys;
     private service: ServiceLocator;
 
@@ -10,7 +11,6 @@ class SpaceState {
     }
 
     preload() {
-        // this.game.load.image('ship1', 'img/shipsship1.png');
         this.game.load.atlasJSONHash('ship1', 'img/ships/ship1.png', 'img/ships/ship1.json');
         this.game.load.image('star', 'img/star.png');
     }
@@ -19,6 +19,7 @@ class SpaceState {
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         this.ship = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship1', 'stand');
+        this.ship.animations.add('move', [0, 1, 2, 3, 4]);
 
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.physics.p2.enable(this.ship);
@@ -39,16 +40,24 @@ class SpaceState {
         this.ship.body.setZeroVelocity();
         let shipDistanceFromPointer = this.game.physics.arcade.distanceToPointer(this.ship);
 
-        if (this.game.input.activePointer.isDown && shipDistanceFromPointer > 50) {
-            this.ship.frameName = ShipState.MOVE;
+        if (this.game.input.activePointer.isDown && shipDistanceFromPointer > 60) {
             this.game.physics.arcade.moveToPointer(this.ship, 100);
             this.ship.rotation = this.game.physics.arcade.angleToPointer(this.ship) + 1.6;
+            this.runMovingShipAnimation();
         } else {
+            this.shipState = ShipState.STAND;
             this.ship.frameName = ShipState.STAND;
         }
     }
 
     render() {
         this.game.debug.spriteInfo(this.ship, 32, 32);
+    }
+
+    private runMovingShipAnimation() {
+        if (this.shipState === ShipState.STAND) {
+            this.ship.animations.play('move', 15, true);
+            this.shipState = ShipState.MOVE;
+        }
     }
 }
