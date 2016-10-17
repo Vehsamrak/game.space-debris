@@ -1,7 +1,7 @@
 import Game = Phaser.Game;
 
 class MapService {
-    game: Game;
+    private game: Game;
     private starsNumber: number = 30;
     private brimBounds: number = 500;
 
