@@ -2,11 +2,12 @@ import Game = Phaser.Game;
 
 class MapService {
     private game: Game;
-    private starsNumber: number = 30;
+    private starsNumber: number;
     private brimBounds: number = 500;
 
     constructor(game: Phaser.Game) {
         this.game = game;
+        this.starsNumber = (game.world.height + game.world.width) / 40;
     }
 
     createStar(): void {

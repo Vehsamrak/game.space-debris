@@ -6,7 +6,7 @@ class BootState {
     }
 
     create() {
-        this.game.world.setBounds(0, 0, 1000, 1000);
+        this.game.world.setBounds(0, 0, 3000, 3000);
         this.game.stage.backgroundColor = '#020F14';
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
 
