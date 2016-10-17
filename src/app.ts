@@ -1,42 +1,10 @@
 /// <reference path="../lib/phaser.d.ts"/>
 
-class Game {
+class Application {
     game: Phaser.Game;
     private ship: Phaser.Sprite;
     private cursors: Phaser.CursorKeys;
-
-    constructor() {
-        this.game = new Phaser.Game(800, 600, Phaser.AUTO, 'content', {
-            preload: this.preload,
-            create: this.create,
-            update: this.update,
-            render: this.render,
-        });
-    }
-
-    preload() {
-        this.game.load.image('ship1', 'img/ship1.png');
-    }
-
-    create() {
-        this.game.stage.backgroundColor = '#020F14';
-        this.game.world.setBounds(0, 0, 1000, 1000);
-        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.RESIZE;
-        this.cursors = this.game.input.keyboard.createCursorKeys();
-
-        this.ship = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'ship1');
-
-        this.game.physics.startSystem(Phaser.Physics.P2JS);
-        this.game.physics.p2.enable(this.ship);
-
-        this.ship.body.fixedRotation = true;
-
-        this.game.camera.follow(this.ship, Phaser.Camera.FOLLOW_LOCKON);
-
-        this.game.input.onDown.add(function () {
-            this.game.scale.startFullScreen(false);
-        }, this);
-    }
+    private service: ServiceLocator;
 
     update() {
         this.ship.body.setZeroVelocity();
@@ -54,5 +22,7 @@ class Game {
 }
 
 window.onload = () => {
-    new Game();
+    var game = new Phaser.Game(800, 600, Phaser.AUTO);
+    game.state.add('boot', new BootState(game));
+    game.state.start('boot');
 };
