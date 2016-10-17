@@ -15,6 +15,5 @@ gulp.task('default', function () {
 
     return merge(phaser, ts)
         .pipe(concat('scripts.js'))
-        // .pipe(uglify())
         .pipe(gulp.dest('./web/js'));
 });
