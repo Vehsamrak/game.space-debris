@@ -13,6 +13,7 @@ class SpaceState {
     preload() {
         this.game.load.atlasJSONHash('ship1', 'img/ships/ship1.png', 'img/ships/ship1.json');
         this.game.load.image('star', 'img/star.png');
+        this.game.load.image('button', 'img/button.png');
     }
 
     create() {
@@ -34,6 +35,9 @@ class SpaceState {
 
         let mapService: MapService = this.service.get('map');
         mapService.createStar();
+
+        let button = this.game.add.button(20, window.screen.height - 150, 'button', this.shakeCamera, this, 2, 1, 0);
+        button.fixedToCamera = true;
     }
 
     update() {
@@ -51,7 +55,7 @@ class SpaceState {
     }
 
     render() {
-        this.game.debug.spriteInfo(this.ship, 32, 32);
+        // this.game.debug.spriteInfo(this.ship, 32, 32);
     }
 
     private runMovingShipAnimation() {
@@ -59,5 +63,9 @@ class SpaceState {
             this.ship.animations.play('move', 15, true);
             this.shipState = ShipState.MOVE;
         }
+    }
+
+    private shakeCamera() {
+        this.game.camera.shake(0.05, 500);
     }
 }
